@@ -1,0 +1,75 @@
+.container {
+	min-height: 200px;
+}
+
+.carrinho {
+	display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rifa {
+	text-decoration: none;
+    width: 30%;
+    height: 60px;
+}
+
+.expired {
+	opacity: 0.3;
+}
+
+.rifa img {
+	width: 60px;
+	position: relative;
+    float: left;
+	object-fit: cover;
+  	object-position: center;
+	margin-bottom: 10px;
+	border: 2px solid #515A5A;
+}
+
+.rifa p {
+	width: 158px;
+    margin: 5px 0 0 70px;
+}
+
+p {
+	width: 100%;
+	font-size: 14px;
+	color: #515A5A;
+	margin: 15px 0;
+}
+
+.dados-compra {
+	display: inline-block;
+    width: 30%;
+}
+
+.input-radio {
+	font-size: 15px;
+}
+
+.input-text {
+	width: 100%;
+	height: 30px;
+	border: 0;
+	border-radius: 2px;
+	padding-left: 15px;
+	margin: 10px 0;
+}
+
+.align-button {
+	display: flex;
+	justify-content: flex-end;
+	
+	line-height: 1;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+.section-title {
+	width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+	color: #42825f;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+hr {
+	width: 100%;
+}
+
+.produto {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.imagem-produto {
+	height: 300px;
+	object-fit: cover;
+}
+
+.info-produto {
+	width: 40%;
+}
+
+.info-produto p {
+	font-size: 14px;
+	color: #515A5A;
+	margin: 8px 0;
+}
+
+.info-produto hr {
+	border: 1px solid #e6e6e6;
+}
+
+.detalhes {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.detalhes a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #42825f;
+}
+
+.detalhes a:hover {
+	color: #0B6121;
+}
+
+.descricao {
+	height: 60px;
+	overflow: auto;
+}
+
+#progressbar {
+  background-color: #e6e6e6;
+  border-radius: 13px;
+  padding: 3px;
+}
+
+#progressbar > div {
+   background-color: #42825f;
+   width: 60%;
+   height: 20px;
+   border-radius: 10px;
+   font-size: 12px;
+   color: #fff;
+   text-align: center;
+   line-height: 1.7;
+}
+
+.bilhetes-disponiveis {
+	display: inline;
+}
+
+.btn-principal {
+	margin-top: 15px;
+	padding: 0;
+}

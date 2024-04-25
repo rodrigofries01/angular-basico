@@ -1,0 +1,130 @@
+.container {
+	justify-content: center;
+}
+
+.cadastro {
+	width: 60%;
+	margin: 0 auto;
+	align-self: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.cadastro label {
+	font-size: 15px;
+	margin-top: 30px;
+}
+
+.cadastro div:not(.align-button) {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.cadastro input {
+	height: 30px;
+	border: 0;
+	border-radius: 2px;
+	padding-left: 15px;
+	margin: 10px 0;
+}
+
+#info {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+#info label {
+	height: 200px;
+	width: 200px;
+	background-color: #d8d8d8;
+	border: 1px solid #bdbdbd;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+#info label:hover {
+	background-color: #e6e6e6;
+}
+
+#info div {
+	height: 200px;
+	width: 62%;
+	align-self: center;
+}
+
+.img-icon {
+	height: 50px;
+	margin: auto;
+}
+
+#imagem {
+	display: none;
+}
+
+#nome {
+	width: 100%;
+	margin-top: 10px;
+}
+
+#cpf {
+	width: 100%;	
+}
+
+#nascimento {
+	width: 100%;	
+}
+
+#telefone {
+	width: 100%;
+}
+
+#cep {
+	width: 30%;
+}
+
+#logradouro {
+	width: 60%;
+}
+
+#numero {
+	width: 28%;
+}
+
+#complemento {
+	width: 28%;
+}
+
+#bairro {
+	width: 28%;
+}
+
+#cidade {
+	width: 45%;
+}
+
+#estado {
+	width: 45%;
+}
+
+#email {
+	width: 60%;
+}
+
+#senha {
+	width: 30%;	
+}
+
+.align-button {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}

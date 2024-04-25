@@ -1,0 +1,84 @@
+.container {
+	justify-content: center;
+}
+
+.cadastro {
+	width: 60%;
+	margin: 0 auto;
+	align-self: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.section-title {
+	width: 60%;
+	font-size: 30px;
+	font-weight: bold;
+	color: #42825f;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+hr {
+	width: 60%;
+}
+
+.cadastro label {
+	font-size: 15px;
+	margin-top: 30px;
+}
+
+.cadastro div:not(.align-button) {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.cadastro input {
+	height: 30px;
+	border: 0;
+	border-radius: 2px;
+	padding-left: 15px;
+	margin: 10px 0;
+}
+
+.cadastro select {
+	height: 30px;
+	border: 0;
+	border-radius: 2px;
+	padding-left: 15px;
+	margin: 10px 0;
+}
+
+.cadastro textarea {
+	padding-top: 10px;
+	font-family: Arial;
+	width: 100%;
+	border: 0;
+	border-radius: 2px;
+	padding-left: 15px;
+	margin: 10px 0;
+}
+
+#texto {
+	width: 100%;	
+}
+
+.align-button {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.cadastro button {
+	height: 35px;
+	width: 140px;
+	margin-top: 30px;
+	border: 0;
+	border-radius: 5px;
+	color: #fff;
+	background-color: #42825f;
+}

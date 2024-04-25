@@ -1,0 +1,44 @@
+{
+  "animal1": {
+    "brinco": 724,
+    "nome": "Emanuel",
+    "lote": "Bezerros Desmamados",
+    "data_nasc": "2020/01/15",
+    "data_ult_parto": "2021/01/15",
+    "sexo": "Macho",
+    "mae": "Eloá Luana Agatha",
+    "pai": "Pietro Arthur Ribeiro",
+    "altura": "1,64",
+    "peso": 102,
+    "grau_sanguineo": "1/8",
+    "raça": "Holandes Preto e Branco"
+  },
+  "animal2": {
+    "brinco": 343,
+    "nome": "Anderson",
+    "lote": "Bezerros Desmamados",
+    "data_nasc": "2020/01/15",
+    "data_ult_parto": "2021/01/15",
+    "sexo": "Macho",
+    "mae": "Ana Silvana Isabel",
+    "pai": "Carlos Noah da Paz",
+    "altura": "1,67",
+    "peso": 83,
+    "grau_sanguineo": "1/8",
+    "raça": "Holandes Preto e Branco"
+  },
+  "animal3": {
+    "brinco": 326,
+    "nome": "Nicole",
+    "lote": "Bezerros Desmamados",
+    "data_nasc": "2020/01/15",
+    "data_ult_parto": "2021/01/15",
+    "sexo": "Femea",
+    "mae": "Flávia Alícia",
+    "pai": "Pedro Gustavo Leandro Cardoso",
+    "altura": "1,66",
+    "peso": 54,
+    "grau_sanguineo": "1/8",
+    "raça": "Holandes Preto e Branco"
+  }
+}
