@@ -1,4 +1,6 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,7 +15,9 @@ export default function Home() {
           our team to ensure our highest quality standards.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <link href="/products">Browse trending</link>
+          <Link href="/products" className={buttonVariants()}>
+            Browse trending
+          </Link>
         </div>
       </div>
     </MaxWidthWrapper>
