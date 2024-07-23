@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "cypress": "^13.6.6",
-    "dayjs": "^1.11.10"
-  }
-}
