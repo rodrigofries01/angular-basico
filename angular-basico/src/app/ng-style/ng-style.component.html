@@ -1,0 +1,7 @@
+<button (click)="alterarCor()" style="font-weight: bold;">Mudar Cor</button>
+<br><br>
+<div class="quadrado" [ngStyle]="{'background-color':condicao ? 'green':'red'}"></div>
+<ul>
+  <li style="width: 80px;" *ngFor="let l of lista" [ngStyle]="{'background-color': l=='Aprovado' ? 'green' : 'red'}">
+    {{l}}</li>
+</ul>
