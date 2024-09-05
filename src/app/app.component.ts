@@ -12,6 +12,7 @@ import { NgClassComponent } from './ng-class/ng-class.component';
 import { ConfBootstrapComponent } from './conf-bootstrap/conf-bootstrap.component';
 import { FormsModuleComponent } from './forms-module/forms-module.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { CrudComponent } from './crud/crud.component';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     ConfBootstrapComponent,
     FormsModuleComponent,
     ReactiveFormsComponent,
+    CrudComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

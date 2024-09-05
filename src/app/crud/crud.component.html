@@ -1,0 +1,38 @@
+<form [formGroup]="formulario">
+
+  <!-- TODO  https://www.youtube.com/watch?v=Qw7HVZfaM1w&list=PLWXw8Gu52TRKj3tFWHlkheh8rLQRqQ1__&index=29 -->
+  <!-- TODO  Prosseguir com validações dos inputs-->
+
+  <!-- NOME -->
+  <input type="text" placeholder="Nome" formControlName="nome" class="form-control">
+  @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
+  <p class="alert alert-warning">O campo nome é obrigatório</p>
+  }
+
+  <!-- IDADE -->
+  <input type="number" placeholder="Idade" formControlName="idade" class="form-control">
+
+  <!-- CIDADE -->
+  <input type="text" placeholder="Cidade" formControlName="cidade" class="form-control">
+
+  <input type="button" value="Cadastrar" class="btn btn-success">
+  <input type="button" value="Alterar" class="btn btn-primary">
+  <input type="button" value="Deletar" class="btn btn-danger">
+  <input type="button" value="Cancelar" class="btn btn-warning">
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Cidade</th>
+      <th>Selecionar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  </tbody>
+</table>
