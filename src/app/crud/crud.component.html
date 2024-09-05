@@ -5,15 +5,35 @@
 
   <!-- NOME -->
   <input type="text" placeholder="Nome" formControlName="nome" class="form-control">
+
   @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
   <p class="alert alert-warning">O campo nome é obrigatório</p>
+  }@else if (formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
+  <p class="alert alert-warning">O nome precisa ter pelo menos 3 caracteres</p>
   }
 
   <!-- IDADE -->
   <input type="number" placeholder="Idade" formControlName="idade" class="form-control">
 
+  @if (formulario.get('idade').hasError('required') && formulario.get('idade').touched) {
+  <p class="alert alert-warning">O campo idade é obrigatório</p>
+  }
+  @else if (formulario.get('idade').hasError('min') && formulario.get('idade').touched) {
+  <p class="alert alert-warning">A idade não pode ser menor que 0</p>
+  }
+  @else if (formulario.get('idade').hasError('max') && formulario.get('idade').touched) {
+  <p class="alert alert-warning">A idade não pode ser maior que 100</p>
+  }
+
+
+
   <!-- CIDADE -->
   <input type="text" placeholder="Cidade" formControlName="cidade" class="form-control">
+  @if (formulario.get('cidade').hasError('required') && formulario.get('cidade').touched) {
+  <p class="alert alert-warning">O campo cidade é obrigatório</p>
+  }@else if (formulario.get('cidade').hasError('minlength') && formulario.touched) {
+  <p class="alert alert-warning">O nome precisa ter pelo menos 3 caracteres</p>
+  }
 
   <input type="button" value="Cadastrar" class="btn btn-success">
   <input type="button" value="Alterar" class="btn btn-primary">
