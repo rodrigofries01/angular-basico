@@ -11,3 +11,7 @@ input {
 table {
   text-align: center;
 }
+
+table th {
+  font-weight: bold;
+}

@@ -1,8 +1,4 @@
 <form [formGroup]="formulario">
-
-  <!-- TODO  https://www.youtube.com/watch?v=Qw7HVZfaM1w&list=PLWXw8Gu52TRKj3tFWHlkheh8rLQRqQ1__&index=29 -->
-  <!-- TODO  Prosseguir com validações dos inputs-->
-
   <!-- NOME -->
   <input type="text" placeholder="Nome" formControlName="nome" class="form-control">
 
@@ -35,10 +31,13 @@
   <p class="alert alert-warning">O nome precisa ter pelo menos 3 caracteres</p>
   }
 
-  <input type="button" value="Cadastrar" class="btn btn-success">
-  <input type="button" value="Alterar" class="btn btn-primary">
+  @if (btnCadastro) {
+  <input (click)="cadastrar()" type="button" value="Cadastrar" class="btn btn-success" [disabled]="formulario.invalid">
+  }@else {
+  <input type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario.invalid">
   <input type="button" value="Deletar" class="btn btn-danger">
   <input type="button" value="Cancelar" class="btn btn-warning">
+  }
 </form>
 
 <table class="table">
@@ -52,7 +51,13 @@
     </tr>
   </thead>
 
-  <tbody>
-
+  <tbody class="container">
+    <tr *ngFor="let v of vetor; index as indice">
+      <td>{{indice + 1}}</td>
+      <td>{{v.nome}}</td>
+      <td>{{v.idade}}</td>
+      <td>{{v.cidade}}</td>
+      <td><button class="btn btn-secondary">Selecionar</button></td>
+    </tr>
   </tbody>
 </table>
