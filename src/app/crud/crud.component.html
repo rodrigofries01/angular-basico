@@ -34,7 +34,7 @@
   @if (btnCadastro) {
   <input (click)="cadastrar()" type="button" value="Cadastrar" class="btn btn-success" [disabled]="formulario.invalid">
   }@else {
-  <input type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario.invalid">
+  <input (click)="alterar()" type="button" value="Alterar" class="btn btn-primary" [disabled]="formulario.invalid">
   <input type="button" value="Deletar" class="btn btn-danger">
   <input type="button" value="Cancelar" class="btn btn-warning">
   }
@@ -57,7 +57,7 @@
       <td>{{v.nome}}</td>
       <td>{{v.idade}}</td>
       <td>{{v.cidade}}</td>
-      <td><button class="btn btn-secondary">Selecionar</button></td>
+      <td><button (click)="selecionar(indice)" class="btn btn-primary">Selecionar</button></td>
     </tr>
   </tbody>
 </table>

@@ -28,8 +28,11 @@ export class CrudComponent {
   });
   //visibilidade botões
   btnCadastro: boolean = true;
-
+  //vetor
   vetor: Pessoa[] = [];
+
+  //variavel que armazena o indice
+  indice: number = -1;
 
   cadastrar() {
     //realizar cadastro
@@ -40,5 +43,30 @@ export class CrudComponent {
 
     //exibir no console
     console.table(this.vetor);
+  }
+
+  // função de selecionar
+  selecionar(indice: number) {
+    // atribui o indice a pessoa
+    this.indice = indice;
+    this.formulario.setValue({
+      nome: this.vetor[indice].nome,
+      idade: this.vetor[indice].idade,
+      cidade: this.vetor[indice].cidade,
+    });
+    //visibilidade dos botões
+    this.btnCadastro = false;
+  }
+
+  //funcao de alteração
+  alterar() {
+    //alterar valor
+    this.vetor[this.indice] = this.formulario.value as Pessoa;
+
+    //resetar os campos
+    this.formulario.reset();
+
+    //visibilidade dos botões
+    this.btnCadastro = true;
   }
 }
