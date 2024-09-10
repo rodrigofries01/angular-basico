@@ -69,4 +69,23 @@ export class CrudComponent {
     //visibilidade dos botões
     this.btnCadastro = true;
   }
+
+  remover() {
+    // remover os dados
+    this.vetor.splice(this.indice, 1);
+
+    //limpeza dos campos
+    this.formulario.reset();
+
+    // visibilidade dos botões]
+    this.btnCadastro = true;
+  }
+
+  cancelar() {
+    // limpeza dos campos
+    this.formulario.reset();
+
+    // visibilidade dos botões
+    this.btnCadastro = true;
+  }
 }
