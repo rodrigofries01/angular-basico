@@ -1,11 +1,23 @@
 <form [formGroup]="formulario">
   <input type="number" class="form-control" formControlName="id" readonly>
-  <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
-  <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
 
-  <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrar">
-  <input type="button" class="btn btn-warning" value="Alterar" *ngIf="!btnCadastrar">
-  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar">
+  <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+  @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
+  <p class="alert alert-warning">O campo nome é obrigatório</p>
+  }@else if (formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
+  <p class="alert alert-warning">O nome precisa ter pelo menos 3 caracteres</p>
+  }
+
+  <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
+  @if (formulario.get('valor').hasError('required') && formulario.get('valor').touched) {
+  <p class="alert alert-warning">O campo valor é obrigatório</p>
+  }
+
+  <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrar" (click)="cadastrar()"
+    [disabled]="formulario.invalid">
+  <input type="button" class="btn btn-warning" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()"
+    [disabled]="formulario.invalid">
+  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" [disabled]="formulario.invalid">
 </form>
 
 <!-- TABELA -->
@@ -22,9 +34,9 @@
   <tbody>
     <tr *ngFor="let v of vetor; let indice = index">
       <td>{{indice+1}}</td>
-      <td>{{v.nome}}</td>
-      <td>{{v.valor}}</td>
-      <td><button class="btn btn-primary">Selecionar</button></td>
+      <td>{{v.nome | titlecase}}</td>
+      <td>{{v.valor | currency:'BRL'}}</td>
+      <td><button (click)="selecionarProduto(indice)" class="btn btn-primary">Selecionar</button></td>
     </tr>
   </tbody>
 </table>
