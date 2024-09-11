@@ -14,6 +14,7 @@ import { FormsModuleComponent } from './forms-module/forms-module.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { CrudComponent } from './crud/crud.component';
 import { PipesComponent } from './comp-pipes/pipes.component';
+import { CompAula43Component } from './comp-aula43/comp-aula43.component';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +35,7 @@ import { PipesComponent } from './comp-pipes/pipes.component';
     ReactiveFormsComponent,
     CrudComponent,
     PipesComponent,
+    CompAula43Component,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

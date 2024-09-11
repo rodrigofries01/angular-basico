@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PipesComponent } from '../comp-pipes/pipes.component';
 
 @Pipe({
   name: 'media',
