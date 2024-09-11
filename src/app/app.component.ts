@@ -13,6 +13,7 @@ import { ConfBootstrapComponent } from './conf-bootstrap/conf-bootstrap.componen
 import { FormsModuleComponent } from './forms-module/forms-module.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { CrudComponent } from './crud/crud.component';
+import { PipesComponent } from './comp-pipes/pipes.component';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ import { CrudComponent } from './crud/crud.component';
     FormsModuleComponent,
     ReactiveFormsComponent,
     CrudComponent,
+    PipesComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

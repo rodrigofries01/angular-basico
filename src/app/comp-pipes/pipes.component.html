@@ -1,0 +1,28 @@
+<p>{{ nome | uppercase }}</p>
+<p>{{ nome | lowercase }}</p>
+<p>{{ obj.idade | percent }}</p>
+<p>{{ obj.data | date : "fullDate" }}</p>
+<p>{{ obj.valor | currency }}</p>
+<p>{{ obj | json }}</p>
+<p>{{ array | slice : 0 : 3 }}</p>
+<p>{{ nome | titlecase }}</p>
+<hr />
+<table class="table" *ngIf="alunos.length">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Nota 1</th>
+      <th>Nota 2</th>
+      <th>Media</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let a of alunos">
+      <td>{{ a.nome }}</td>
+      <td>{{ a.nota1 }}</td>
+      <td>{{ a.nota2 }}</td>
+      <td>{{ a | media }}</td>
+    </tr>
+  </tbody>
+</table>
