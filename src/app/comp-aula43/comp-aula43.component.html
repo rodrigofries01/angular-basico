@@ -3,9 +3,9 @@
   <input type="text" class="form-control" placeholder="Nome">
   <input type="number" class="form-control" placeholder="Valor">
 
-  <input type="button" class="btn btn-primary" value="Cadastrar">
-  <input type="button" class="btn btn-warning" value="Alterar">
-  <input type="button" class="btn btn-danger" value="Remover">
+  <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrar">
+  <input type="button" class="btn btn-warning" value="Alterar" *ngIf="!btnCadastrar">
+  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar">
 </form>
 
 <!-- TABELA -->
@@ -20,11 +20,11 @@
   </thead>
 
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let v of vetor; let indice = index">
+      <td>{{indice+1}}</td>
+      <td>{{v.nome}}</td>
+      <td>{{v.valor}}</td>
+      <td><button class="btn btn-primary">Selecionar</button></td>
     </tr>
   </tbody>
 </table>
