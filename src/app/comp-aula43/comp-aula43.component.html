@@ -17,7 +17,8 @@
     [disabled]="formulario.invalid">
   <input type="button" class="btn btn-warning" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()"
     [disabled]="formulario.invalid">
-  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" [disabled]="formulario.invalid">
+  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" (click)="remover()"
+    [disabled]="formulario.invalid">
 </form>
 
 <!-- TABELA -->

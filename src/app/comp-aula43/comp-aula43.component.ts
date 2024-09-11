@@ -84,4 +84,23 @@ export class CompAula43Component {
         this.btnCadastrar = true;
       });
   }
+
+  // Metodo para remover produto
+  remover() {
+    this.servico.remover(this.formulario.value.id).subscribe((retorno) => {
+      // Obter o indice do vetor que sera removido
+      let indiceRemovido = this.vetor.findIndex((obj) => {
+        return obj === this.formulario.value.id;
+      });
+
+      // Remover objeto do vetor
+      this.vetor.splice(indiceRemovido, 1);
+
+      // Limpar o formulario
+      this.formulario.reset();
+
+      // Visibilidade dos botões
+      this.btnCadastrar = true;
+    });
+  }
 }
