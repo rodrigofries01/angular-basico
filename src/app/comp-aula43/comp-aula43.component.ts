@@ -31,7 +31,9 @@ export class CompAula43Component {
   });
 
   // Construtor
-  constructor(private servico: ProdutoService) {}
+  constructor(private servico: ProdutoService) {
+    this.selecionar();
+  }
 
   // inicialização do componente
   ngOnInit() {
@@ -44,15 +46,18 @@ export class CompAula43Component {
       this.vetor = retorno;
     });
   }
-
   // Metodo para cadastrar produtos
   cadastrar() {
-    this.servico
-      .cadastrar(this.formulario.value as Produto)
-      .subscribe((retorno) => {
-        this.vetor.push(retorno);
-        this.formulario.reset();
-      });
+    // Definir o id do produto com base no comprimento do vetor
+    const indice = this.formulario.value as Produto;
+    indice.id = this.vetor.length + 1;
+
+    this.servico.cadastrar(indice).subscribe((retorno) => {
+      this.vetor.push(retorno);
+      console.table(this.vetor);
+
+      this.formulario.reset();
+    });
   }
 
   // Metodo para selecionar um produto especifico
@@ -72,7 +77,7 @@ export class CompAula43Component {
       .subscribe((retorno) => {
         // obter o indice do objeto alterado
         let indiceAlterado = this.vetor.findIndex((obj) => {
-          return this.formulario.value.id === obj.id;
+          return indiceAlterado === obj.id;
         });
         // Alterar o vetor
         this.vetor[indiceAlterado] = retorno;
@@ -102,5 +107,11 @@ export class CompAula43Component {
       // Visibilidade dos botões
       this.btnCadastrar = true;
     });
+  }
+
+  // Metodo para cancelar operação
+  cancelar() {
+    this.formulario.reset();
+    this.btnCadastrar = true;
   }
 }
