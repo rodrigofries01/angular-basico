@@ -20,6 +20,7 @@
     "@angular/router": "^17.3.0",
     "angular-basico": "file:",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "json-server": "^1.0.0-beta.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

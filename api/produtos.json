@@ -2,13 +2,13 @@
   "produtos": [
     {
       "id": 1,
-      "nome": "Iphone",
+      "nome": "Galaxy S20",
       "valor": 5000
     },
     {
       "id": 2,
-      "nome": "Xbox 360",
-      "valor": 8787
+      "nome": "iPhone 354",
+      "valor": 7000
     }
   ]
 }

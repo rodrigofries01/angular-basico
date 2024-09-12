@@ -1,8 +1,5 @@
-{{formulario.value | json}}
-
-
 <form [formGroup]="formulario">
-  <input type="number" class="form-control" formControlName="id" readonly>
+  <input type="number" class="form-control" formControlName="id" readonly hidden>
 
   <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
   @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
@@ -24,16 +21,15 @@
     [disabled]="formulario.invalid">
   <input type="button" class="btn btn-warning" value="Cancelar" *ngIf="!btnCadastrar" (click)="cancelar()"
     [disabled]="formulario.invalid">
-
 </form>
 
 <!-- TABELA -->
 <table class="table table-striped">
   <thead>
-    <tr>
+    <tr class="bi bi-arrow-bar-up bi bi-arrow-bar-down">
       <th>#</th>
-      <th>Nome</th>
-      <th>Valor</th>
+      <th class="bi-arrow-90deg-down" (click)="sortData('nome')">Nome</th>
+      <th (click)="sortData('valor')">Valor</th>
       <th>Selecionar</th>
     </tr>
   </thead>

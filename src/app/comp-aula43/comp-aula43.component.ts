@@ -22,6 +22,7 @@ export class CompAula43Component {
 
   // visibilidade dos botoes
   btnCadastrar: boolean = true;
+  sortDirection: { [key: string]: boolean } = {};
 
   // objeto de formulario
   formulario = new FormGroup({
@@ -31,8 +32,22 @@ export class CompAula43Component {
   });
 
   // Construtor
-  constructor(private servico: ProdutoService) {
-    this.selecionar();
+  constructor(private servico: ProdutoService) {}
+
+  sortData(key: string) {
+    this.sortDirection[key] = !this.sortDirection[key];
+
+    this.vetor.sort((a, b) => {
+      const aVçlor = a[key as keyof Produto];
+      const bValor = b[key as keyof Produto];
+      if (aVçlor < bValor) {
+        return this.sortDirection[key] ? -1 : 1;
+      } else if (aVçlor > bValor) {
+        return this.sortDirection[key] ? 1 : -1;
+      } else {
+        return 0;
+      }
+    });
   }
 
   // inicialização do componente
@@ -46,18 +61,16 @@ export class CompAula43Component {
       this.vetor = retorno;
     });
   }
+
   // Metodo para cadastrar produtos
   cadastrar() {
-    // Definir o id do produto com base no comprimento do vetor
-    const indice = this.formulario.value as Produto;
-    indice.id = this.vetor.length + 1;
-
-    this.servico.cadastrar(indice).subscribe((retorno) => {
-      this.vetor.push(retorno);
-      console.table(this.vetor);
-
-      this.formulario.reset();
-    });
+    this.servico
+      .cadastrar(this.formulario.value as Produto)
+      .subscribe((retorno) => {
+        this.vetor.push(retorno);
+        console.table(this.vetor);
+        this.formulario.reset();
+      });
   }
 
   // Metodo para selecionar um produto especifico
@@ -77,10 +90,11 @@ export class CompAula43Component {
       .subscribe((retorno) => {
         // obter o indice do objeto alterado
         let indiceAlterado = this.vetor.findIndex((obj) => {
-          return indiceAlterado === obj.id;
+          return this.formulario.value.id === obj.id;
         });
         // Alterar o vetor
         this.vetor[indiceAlterado] = retorno;
+        console.table(this.vetor);
 
         // Limpar o formulario
         this.formulario.reset();
@@ -100,6 +114,7 @@ export class CompAula43Component {
 
       // Remover objeto do vetor
       this.vetor.splice(indiceRemovido, 1);
+      console.table(this.vetor);
 
       // Limpar o formulario
       this.formulario.reset();
@@ -109,7 +124,7 @@ export class CompAula43Component {
     });
   }
 
-  // Metodo para cancelar operação
+  // Metodo de cancelar operação
   cancelar() {
     this.formulario.reset();
     this.btnCadastrar = true;
