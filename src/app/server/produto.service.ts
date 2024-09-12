@@ -15,6 +15,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 
+// TODO // Ajustar os demais metodos, para ficar iguais ao metodo de cadastro
+
 // Classe
 export class ProdutoService {
   // URL da API
