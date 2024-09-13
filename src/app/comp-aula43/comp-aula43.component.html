@@ -28,10 +28,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>#
-        <span *ngIf="sortColumn == '#'">
-          <span *ngIf="sortDirection['#']">▲</span>
-          <span *ngIf="!sortDirection['#']">▼</span>
+      <th (click)="sortData('id')">#
+        <span *ngIf="sortColumn == 'id'">
+          <span *ngIf="sortDirection['id']">▲</span>
+          <span *ngIf="!sortDirection['id']">▼</span>
         </span>
       </th>
       <th (click)="sortData('nome')">Nome
