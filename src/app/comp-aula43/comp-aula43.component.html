@@ -23,13 +23,30 @@
     [disabled]="formulario.invalid">
 </form>
 
+<link rel="stylesheet">
 <!-- TABELA -->
 <table class="table table-striped">
   <thead>
-    <tr class="bi bi-arrow-bar-up bi bi-arrow-bar-down">
-      <th>#</th>
-      <th class="bi-arrow-90deg-down" (click)="sortData('nome')">Nome</th>
-      <th (click)="sortData('valor')">Valor</th>
+    <tr>
+      <th>#
+        <span *ngIf="sortColumn == '#'">
+          <span *ngIf="sortDirection['#']">▲</span>
+          <span *ngIf="!sortDirection['#']">▼</span>
+        </span>
+      </th>
+      <th (click)="sortData('nome')">Nome
+        <span *ngIf="sortColumn == 'nome'">
+          <span *ngIf="sortDirection['nome']">▲</span>
+          <span *ngIf="!sortDirection['nome']">▼</span>
+        </span>
+      </th>
+      <th (click)="sortData('valor')">Valor
+        <span *ngIf="sortColumn == 'valor'">
+          <span *ngIf="sortDirection['valor']">▲</span>
+          <span *ngIf="!sortDirection['valor']">▼</span>
+        </span>
+      </th>
+
       <th>Selecionar</th>
     </tr>
   </thead>

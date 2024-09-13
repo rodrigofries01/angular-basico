@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import {
   FormControl,
@@ -6,13 +7,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { Produto } from '../models/Produto';
 import { ProdutoService } from '../server/produto.service';
 
 @Component({
   selector: 'app-comp-aula43',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
   templateUrl: './comp-aula43.component.html',
   styleUrl: './comp-aula43.component.css',
 })
@@ -22,6 +24,7 @@ export class CompAula43Component {
 
   // visibilidade dos botoes
   btnCadastrar: boolean = true;
+  sortColumn: string = '';
   sortDirection: { [key: string]: boolean } = {};
 
   // objeto de formulario
@@ -30,19 +33,25 @@ export class CompAula43Component {
     nome: new FormControl('', [Validators.required, Validators.minLength(3)]),
     valor: new FormControl(null, [Validators.required, Validators.min(0)]),
   });
+  key: any;
 
   // Construtor
   constructor(private servico: ProdutoService) {}
 
   sortData(key: string) {
+    // Define a coluna atualmente ordenada
+    this.sortColumn = key;
+    // Alterna a direção da ordenação para a coluna selecionada
     this.sortDirection[key] = !this.sortDirection[key];
 
     this.vetor.sort((a, b) => {
-      const aVçlor = a[key as keyof Produto];
+      const aValor = a[key as keyof Produto];
       const bValor = b[key as keyof Produto];
-      if (aVçlor < bValor) {
+      if (aValor < bValor) {
+        this.sortDirection[key] = true;
         return this.sortDirection[key] ? -1 : 1;
-      } else if (aVçlor > bValor) {
+      } else if (aValor > bValor) {
+        this.sortDirection[key] = false;
         return this.sortDirection[key] ? 1 : -1;
       } else {
         return 0;
