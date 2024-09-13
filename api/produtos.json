@@ -1,13 +1,13 @@
 {
   "produtos": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Galaxy S20",
       "valor": 5000
     },
     {
-      "id": 2,
-      "nome": "iPhone 354",
+      "id": "2",
+      "nome": "iPhone 15",
       "valor": 7000
     }
   ]
