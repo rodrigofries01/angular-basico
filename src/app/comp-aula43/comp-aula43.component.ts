@@ -7,14 +7,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
 import { Produto } from '../models/Produto';
 import { ProdutoService } from '../server/produto.service';
 
 @Component({
   selector: 'app-comp-aula43',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './comp-aula43.component.html',
   styleUrl: './comp-aula43.component.css',
 })
