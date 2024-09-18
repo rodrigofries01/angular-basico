@@ -2,13 +2,13 @@
   "produtos": [
     {
       "id": 1,
-      "nome": "Iphone",
-      "valor": 5000
+      "nome": "Xbox 360",
+      "valor": 999
     },
     {
-      "id": 2,
-      "nome": "Xbox 360",
-      "valor": 8787
+      "id": null,
+      "nome": "Rodrigo Fries",
+      "valor": 6767
     }
   ]
 }

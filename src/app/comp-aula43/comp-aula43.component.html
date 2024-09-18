@@ -2,64 +2,51 @@
 
 
 <form [formGroup]="formulario">
-  <input type="number" class="form-control" formControlName="id" readonly hidden>
-
-  <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
   @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
   <p class="alert alert-warning">O campo nome é obrigatório</p>
   }@else if (formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
   <p class="alert alert-warning">O nome precisa ter pelo menos 3 caracteres</p>
   }
-
-  <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
   @if (formulario.get('valor').hasError('required') && formulario.get('valor').touched) {
   <p class="alert alert-warning">O campo valor é obrigatório</p>
+  }@else if (formulario.get('valor').hasError('min') && formulario.get('valor').touched) {
+  <p class="alert alert-warning">O valor precisa ser maior que 0.01</p>
   }
+  <!-- Campos visuais -->
+  <input type="hidden" class="form-control" formControlName="id" readonly>
+  <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+  <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
 
+  <!-- Botões -->
   <input type="button" class="btn btn-success" value="Cadastrar" *ngIf="btnCadastrar" (click)="cadastrar()"
-    [disabled]="formulario.invalid">
-  <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()"
-    [disabled]="formulario.invalid">
-  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" (click)="remover()"
-    [disabled]="formulario.invalid">
-  <input type="button" class="btn btn-warning" value="Cancelar" *ngIf="!btnCadastrar" (click)="cancelar()"
-    [disabled]="formulario.invalid">
+    [disabled]="formulario.get('nome').hasError('required') || formulario.get('valor').hasError('required') || formulario.get('valor').hasError('min')">
+  <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()">
+  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" (click)="remover()">
+  <input type="button" class="btn btn-warning" value="Cancelar" *ngIf="!btnCadastrar" (click)="cancelar()">
 </form>
 
-<link rel="stylesheet">
+<!-- Pesquisa -->
+<input type="text" placeholder="O que esta procurando?" class="form-control pesquisa" (ngModel)="termoPesquisado">
+
 <!-- TABELA -->
 <table class="table table-striped">
   <thead>
     <tr>
-      <th (click)="sortData('id')">#
-        <span *ngIf="sortColumn == 'id'">
-          <span *ngIf="sortDirection['id']">▲</span>
-          <span *ngIf="!sortDirection['id']">▼</span>
-        </span>
-      </th>
-      <th (click)="sortData('nome')">Nome
-        <span *ngIf="sortColumn == 'nome'">
-          <span *ngIf="sortDirection['nome']">▲</span>
-          <span *ngIf="!sortDirection['nome']">▼</span>
-        </span>
-      </th>
-      <th (click)="sortData('valor')">Valor
-        <span *ngIf="sortColumn == 'valor'">
-          <span *ngIf="sortDirection['valor']">▲</span>
-          <span *ngIf="!sortDirection['valor']">▼</span>
-        </span>
-      </th>
-
+      <th>#</th>
+      <th>Nome</th>
+      <th>Valor</th>
       <th>Selecionar</th>
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let v of vetor; index as indice">
-      <td>{{indice+1}}</td>
-      <td>{{v.nome | titlecase}}</td>
-      <td>{{v.valor | currency:'BRL'}}</td>
-      <td><button (click)="selecionarProduto(indice)" class="btn btn-primary">Selecionar</button></td>
+      <ng-container *ngIf="v.nome.toLowerCase().includes(termoPesquisado.toLowerCase()) || !termoPesquisado">
+        <td>{{indice+1}}</td>
+        <td>{{v.nome | titlecase}}</td>
+        <td>{{v.valor | currency:'BRL'}}</td>
+        <td><button class="btn btn-primary" (click)="selecionarProduto(indice)">Selecionar</button></td>
+      </ng-container>
     </tr>
   </tbody>
 </table>
