@@ -1,32 +1,35 @@
-{{formulario.value | json}}
-
-
 <form [formGroup]="formulario">
-  @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
+  @if (formulario.get('nome').hasError('required') &&
+  formulario.get('nome').touched) {
   <p class="alert alert-warning">O campo nome é obrigatório</p>
-  }@else if (formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
+  }@else if (formulario.get('nome').hasError('minlength') &&
+  formulario.get('nome').touched) {
   <p class="alert alert-warning">O nome precisa ter pelo menos 3 caracteres</p>
-  }
-  @if (formulario.get('valor').hasError('required') && formulario.get('valor').touched) {
+  } @if (formulario.get('valor').hasError('required') &&
+  formulario.get('valor').touched) {
   <p class="alert alert-warning">O campo valor é obrigatório</p>
-  }@else if (formulario.get('valor').hasError('min') && formulario.get('valor').touched) {
+  }@else if (formulario.get('valor').hasError('min') &&
+  formulario.get('valor').touched) {
   <p class="alert alert-warning">O valor precisa ser maior que 0.01</p>
   }
   <!-- Campos visuais -->
-  <input type="hidden" class="form-control" formControlName="id" readonly>
-  <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
-  <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
+  <input type="hidden" class="form-control" formControlName="id" readonly />
+  <input type="text" class="form-control" formControlName="nome" placeholder="Nome" />
+  <input type="number" class="form-control" formControlName="valor" placeholder="Valor" />
 
   <!-- Botões -->
-  <input type="button" class="btn btn-success" value="Cadastrar" *ngIf="btnCadastrar" (click)="cadastrar()"
-    [disabled]="formulario.get('nome').hasError('required') || formulario.get('valor').hasError('required') || formulario.get('valor').hasError('min')">
-  <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()">
-  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" (click)="remover()">
-  <input type="button" class="btn btn-warning" value="Cancelar" *ngIf="!btnCadastrar" (click)="cancelar()">
+  <input type="button" class="btn btn-success" value="Cadastrar" *ngIf="btnCadastrar" (click)="cadastrar()" [disabled]="
+      formulario.get('nome').hasError('required') ||
+      formulario.get('valor').hasError('required') ||
+      formulario.get('valor').hasError('min')
+    " />
+  <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()" />
+  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" (click)="remover()" />
+  <input type="button" class="btn btn-warning" value="Cancelar" *ngIf="!btnCadastrar" (click)="cancelar()" />
 </form>
 
 <!-- Pesquisa -->
-<input type="text" placeholder="O que esta procurando?" class="form-control pesquisa" (ngModel)="termoPesquisado">
+<input type="text" placeholder="O que esta procurando?" class="form-control pesquisa" (ngModel)="(termoPesquisado)" />
 
 <!-- TABELA -->
 <table class="table table-striped">
@@ -41,11 +44,18 @@
 
   <tbody>
     <tr *ngFor="let v of vetor; index as indice">
-      <ng-container *ngIf="v.nome.toLowerCase().includes(termoPesquisado.toLowerCase()) || !termoPesquisado">
-        <td>{{indice+1}}</td>
-        <td>{{v.nome | titlecase}}</td>
-        <td>{{v.valor | currency:'BRL'}}</td>
-        <td><button class="btn btn-primary" (click)="selecionarProduto(indice)">Selecionar</button></td>
+      <ng-container *ngIf="
+          v.nome.toLowerCase().includes(termoPesquisado.toLowerCase()) ||
+          !termoPesquisado
+        ">
+        <td>{{ indice + 1 }}</td>
+        <td>{{ v.nome | titlecase }}</td>
+        <td>{{ v.valor | currency : "BRL" }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="selecionarProduto(indice)">
+            Selecionar
+          </button>
+        </td>
       </ng-container>
     </tr>
   </tbody>

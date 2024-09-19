@@ -1,14 +1,14 @@
 {
   "produtos": [
     {
-      "id": 1,
+      "id": "b9c2",
       "nome": "Xbox 360",
-      "valor": 999
+      "valor": 4000
     },
     {
-      "id": null,
-      "nome": "Rodrigo Fries",
-      "valor": 6767
+      "id": "23ac",
+      "nome": "Ps5",
+      "valor": 3000
     }
   ]
 }

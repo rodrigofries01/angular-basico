@@ -53,12 +53,14 @@ export class CompAula43Component {
     if (posicaoNomeExistente != -1) {
       alert('O produto ja existe');
     } else {
-      this.servico
-        .cadastrar(this.formulario.value as Produto)
-        .subscribe((retorno) => {
-          this.vetor.push(retorno);
-          this.formulario.reset();
-        });
+      const novoProduto: Produto = {
+        nome: this.formulario.value.nome,
+        valor: this.formulario.value.valor,
+      };
+      this.servico.cadastrar(novoProduto).subscribe((retorno) => {
+        this.vetor.push(retorno);
+        this.formulario.reset();
+      });
     }
   }
 
