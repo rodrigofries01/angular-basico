@@ -9,12 +9,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { Produto } from '../models/Produto';
+import { AppFilter } from '../pipes/filter.pipe';
 import { ProdutoService } from '../server/produto.service';
 
 @Component({
   selector: 'app-comp-aula43',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  providers: [ProdutoService, AppFilter],
   templateUrl: './comp-aula43.component.html',
   styleUrl: './comp-aula43.component.css',
 })
@@ -22,6 +24,7 @@ export class CompAula43Component {
   vetor: Produto[] = []; // Vetor
   btnCadastrar: boolean = true; // visibilidade dos botoes
   termoPesquisado: string = '';
+  caracteres = [AppFilter];
 
   // objeto de formulario
   formulario = new FormGroup({

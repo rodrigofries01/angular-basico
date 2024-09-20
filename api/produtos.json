@@ -1,14 +1,14 @@
 {
   "produtos": [
     {
-      "id": "b9c2",
-      "nome": "Xbox 360",
-      "valor": 4000
-    },
-    {
       "id": "23ac",
       "nome": "Ps5",
       "valor": 3000
+    },
+    {
+      "id": "0ed7",
+      "nome": "Xbox One",
+      "valor": 3500
     }
   ]
 }
