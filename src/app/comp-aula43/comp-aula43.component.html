@@ -1,49 +1,111 @@
 <form [formGroup]="formulario">
   <!-- Campos visuais e validações -->
   <input type="hidden" class="form-control" formControlName="id" readonly />
-  <input type="text" class="form-control" formControlName="nome" placeholder="Nome" />
+  <input
+    type="text"
+    class="form-control"
+    formControlName="nome"
+    placeholder="Nome"
+  />
   @if (formulario.get('nome').hasError('required') &&
   formulario.get('nome').touched) {
   <p class="alert alert-warning alert-dismissible fade show" role="alert">
     O campo nome é obrigatório!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
   </p>
   }@else if (formulario.get('nome').hasError('minlength') &&
   formulario.get('nome').touched) {
   <p class="alert alert-warning alert-dismissible fade show" role="alert">
     O nome precisa ter pelo menos 3 caracteres
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
   </p>
   }
-  <input type="number" class="form-control" formControlName="valor" placeholder="Valor" />
+  <input
+    type="number"
+    class="form-control"
+    formControlName="valor"
+    placeholder="Valor"
+  />
   @if (formulario.get('valor').hasError('required') &&
   formulario.get('valor').touched) {
   <p class="alert alert-warning alert-dismissible fade show" role="alert">
     O campo valor é obrigatório!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
   </p>
   }@else if (formulario.get('valor').hasError('min') &&
   formulario.get('valor').touched) {
   <p class="alert alert-warning alert-dismissible fade show" role="alert">
     O valor precisa ser maior que 0.01
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
   </p>
   }
 
   <!-- Botões -->
-  <input type="button" class="btn btn-success" value="Cadastrar" *ngIf="btnCadastrar" (click)="cadastrar()" [disabled]="
+  <input
+    type="button"
+    class="btn btn-success"
+    value="Cadastrar"
+    *ngIf="btnCadastrar"
+    (click)="cadastrar()"
+    [disabled]="
       formulario.get('nome').hasError('required') ||
       formulario.get('valor').hasError('required') ||
       formulario.get('valor').hasError('min')
-    " />
-  <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()" />
-  <input type="button" class="btn btn-danger" value="Remover" *ngIf="!btnCadastrar" (click)="remover()" />
-  <input type="button" class="btn btn-warning" value="Cancelar" *ngIf="!btnCadastrar" (click)="cancelar()" />
+    "
+  />
+  <input
+    type="button"
+    class="btn btn-primary"
+    value="Alterar"
+    *ngIf="!btnCadastrar"
+    (click)="alterar()"
+  />
+  <input
+    type="button"
+    class="btn btn-danger"
+    value="Remover"
+    *ngIf="!btnCadastrar"
+    (click)="remover()"
+  />
+  <input
+    type="button"
+    class="btn btn-warning"
+    value="Cancelar"
+    *ngIf="!btnCadastrar"
+    (click)="cancelar()"
+  />
 </form>
 
 <!-- Pesquisa -->
-<input for="termoPesquisado" type="text" placeholder="Pesquisar..." class="form-control pesquisa"
-  (ngModel)="(termoPesquisado)" aria-describedby="termoPesquisado" autofocus />
+<input
+  for="termoPesquisado"
+  type="text"
+  placeholder="Pesquisar..."
+  class="form-control pesquisa"
+  [(ngModel)]="termoPesquisado"
+  aria-describedby="termoPesquisado"
+  autofocus
+/>
 
 <!-- TABELA -->
 <table class="table table-striped">
@@ -57,11 +119,8 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let v of vetor; index as indice">
-      <ng-container *ngIf="
-          v.nome.toLowerCase().includes(termoPesquisado.toLowerCase()) ||
-          !termoPesquisado
-        ">
+    <tr *ngFor="let v of vetor | appFilter : termoPesquisado; index as indice">
+      <ng-container>
         <td>{{ indice + 1 }}</td>
         <td>{{ v.nome | titlecase }}</td>
         <td>{{ v.valor | currency : "BRL" }}</td>

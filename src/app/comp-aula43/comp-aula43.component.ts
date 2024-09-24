@@ -15,7 +15,7 @@ import { ProdutoService } from '../server/produto.service';
 @Component({
   selector: 'app-comp-aula43',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, AppFilter],
   providers: [ProdutoService, AppFilter],
   templateUrl: './comp-aula43.component.html',
   styleUrl: './comp-aula43.component.css',
