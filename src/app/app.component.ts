@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CompAula43Component } from './comp-aula43/comp-aula43.component';
 import { PipesComponent } from './comp-pipes/pipes.component';
+import { CompTestComponent } from './comp-test/comp-test.component';
 import { ConfBootstrapComponent } from './conf-bootstrap/conf-bootstrap.component';
 import { CrudComponent } from './crud/crud.component';
 import { EventBindingComponent } from './event-binding/event-binding.component';
@@ -42,6 +43,7 @@ import { RotasComponent } from './rotas/rotas.component';
     MaterialCompComponent,
     MatCompComponent,
     RotasComponent,
+    CompTestComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
